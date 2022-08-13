@@ -5,7 +5,7 @@ import { DashboardStateProps} from '../types/DashboardState';
 
 const SearchBar = ({ dashboardData, setDashboardData }: DashboardStateProps) => {
   const [ip, setIp] = useState<string>("");
-
+  
   const handleClick = async () => {
     const data = await axios.get(`
     https://geo.ipify.org/api/v2/country?apiKey=${API_KEY}&ipAddress=${ip}`);

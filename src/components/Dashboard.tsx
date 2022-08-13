@@ -1,4 +1,3 @@
-import React from "react";
 import { DashboardStateProps} from '../types/DashboardState';
 
 const Dashboard = ({ dashboardData, setDashboardData } : DashboardStateProps) => {
@@ -13,7 +12,7 @@ const Dashboard = ({ dashboardData, setDashboardData } : DashboardStateProps) =>
             <p className="break-words text-gray-500 uppercase text-xs">
               ip address
             </p>
-            <p className="break-words text-black font-semibold text-xl leading-7">
+            <p className="break-words text-black font-semibold text-lg leading-7">
               {dashboardData.ipAddress}
             </p>
           </div>
@@ -26,7 +25,7 @@ const Dashboard = ({ dashboardData, setDashboardData } : DashboardStateProps) =>
             <p className="break-words text-gray-500 uppercase text-xs">
               location
             </p>
-            <p className="break-words text-black font-semibold text-xl leading-7">
+            <p className="break-words text-black font-semibold text-lg leading-7">
               {dashboardData.location}
             </p>
           </div>
@@ -39,7 +38,7 @@ const Dashboard = ({ dashboardData, setDashboardData } : DashboardStateProps) =>
             <p className="break-words text-gray-500 uppercase text-xs">
               timezone
             </p>
-            <p className="break-words text-black font-semibold text-xl leading-7">
+            <p className="break-words text-black font-semibold text-lg leading-7">
               {dashboardData.timezone}
             </p>
           </div>
@@ -50,7 +49,7 @@ const Dashboard = ({ dashboardData, setDashboardData } : DashboardStateProps) =>
         <div className="flex w-1/4">
           <div className="w-full">
             <p className="break-words text-gray-500 uppercase text-xs">isp</p>
-            <p className="break-words text-black font-semibold text-xl leading-7">
+            <p className="break-words text-black font-semibold text-md leading-7">
               {dashboardData.isp}
             </p>
           </div>
