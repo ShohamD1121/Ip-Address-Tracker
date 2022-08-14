@@ -1,12 +1,13 @@
-import { Fragment, useState } from "react";
+import React,{ Fragment, useState } from "react";
 import SearchBar from "./components/SearchBar";
 import Map from "./components/Map";
 import Dashboard from "./components/Dashboard";
+import { DashBoradDataTypes } from "./types/DashboardTypes";
 import "./App.css";
 
-function App() {
-  const [dashboardData, setDashboardData] = useState({
-    ipAddress: "",
+const App : React.FC = () => {
+  const [dashboardData, setDashboardData] = useState<DashBoradDataTypes>({
+    ipAddress : "",
     location: "",
     timezone: "",
     isp: "",
@@ -24,24 +25,3 @@ function App() {
 }
 
 export default App;
-
-/* <div className="App">
-IP Address Tracker 
-Search for any IP address or domain 
-IP Address 
-Location
-Timezone UTC ISP // add offset value dynamically using the API
-</div> */
-
-// "browserslist": {
-//   "production": [
-//     ">0.2%",
-//     "not dead",
-//     "not op_mini all"
-//   ],
-//   "development": [
-//     "last 1 chrome version",
-//     "last 1 firefox version",
-//     "last 1 safari version"
-//   ]
-// }

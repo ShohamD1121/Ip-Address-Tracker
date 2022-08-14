@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import { DashboardStateProps } from "../types/DashboardState";
+import { DashboardStateProps } from "../types/DashboardTypes";
 
 const SearchBar = ({ setDashboardData }: DashboardStateProps) => {
   const [ip, setIp] = useState<string>("");

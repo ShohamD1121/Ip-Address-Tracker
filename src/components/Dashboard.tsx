@@ -1,4 +1,4 @@
-import { DashboardStateProps} from '../types/DashboardState';
+import { DashboardStateProps} from '../types/DashboardTypes';
 
 const Dashboard = ({ dashboardData, setDashboardData } : DashboardStateProps) => {
 

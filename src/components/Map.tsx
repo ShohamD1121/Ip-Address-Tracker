@@ -71,7 +71,10 @@ const Map: React.FC = () => {
             // }}
           >
             <div>
-              <h2>{activePark.properties.NAME}</h2>
+              <h2>
+                {console.log(activePark)}
+                {activePark.properties.NAME}
+              </h2>
               <p>{activePark.properties.DESCRIPTIO}</p>
             </div>
           </Popup>
