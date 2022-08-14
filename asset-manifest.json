@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.0b93c2e0.css",
-    "main.js": "/static/js/main.bfaed1f4.js",
-    "static/js/787.cda612ba.chunk.js": "/static/js/787.cda612ba.chunk.js",
-    "static/media/pattern-bg.png": "/static/media/pattern-bg.a60a3c85aa8b88aac4b7.png",
-    "index.html": "/index.html",
-    "main.0b93c2e0.css.map": "/static/css/main.0b93c2e0.css.map",
-    "main.bfaed1f4.js.map": "/static/js/main.bfaed1f4.js.map",
-    "787.cda612ba.chunk.js.map": "/static/js/787.cda612ba.chunk.js.map"
+    "main.css": "/Ip-Address-Tracker/static/css/main.df2593d5.css",
+    "main.js": "/Ip-Address-Tracker/static/js/main.b4bb41e0.js",
+    "static/js/787.cda612ba.chunk.js": "/Ip-Address-Tracker/static/js/787.cda612ba.chunk.js",
+    "static/media/pattern-bg.png": "/Ip-Address-Tracker/static/media/pattern-bg.a60a3c85aa8b88aac4b7.png",
+    "index.html": "/Ip-Address-Tracker/index.html",
+    "main.df2593d5.css.map": "/Ip-Address-Tracker/static/css/main.df2593d5.css.map",
+    "main.b4bb41e0.js.map": "/Ip-Address-Tracker/static/js/main.b4bb41e0.js.map",
+    "787.cda612ba.chunk.js.map": "/Ip-Address-Tracker/static/js/787.cda612ba.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0b93c2e0.css",
-    "static/js/main.bfaed1f4.js"
+    "static/css/main.df2593d5.css",
+    "static/js/main.b4bb41e0.js"
   ]
 }
