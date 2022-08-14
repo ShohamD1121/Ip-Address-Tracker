@@ -1,21 +1,31 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import axios from "axios";
-import { API_KEY } from "../constants/API_KEY";
-import { DashboardStateProps} from '../types/DashboardState';
+import { DashboardStateProps } from "../types/DashboardState";
 
-const SearchBar = ({ dashboardData, setDashboardData }: DashboardStateProps) => {
+const SearchBar = ({ setDashboardData }: DashboardStateProps) => {
   const [ip, setIp] = useState<string>("");
-  
+
   const handleClick = async () => {
-    const data = await axios.get(`
-    https://geo.ipify.org/api/v2/country?apiKey=${API_KEY}&ipAddress=${ip}`);
-    setDashboardData({
-      ipAddress: data.data.ip,
-      location: data.data.location.country + ", " + data.data.location.region,
-      timezone: data.data.location.timezone,
-      isp: data.data.isp,
-    });
-    console.log(data);
+    const options = {
+      method: "GET",
+      url: "https://ip-address-tracker-serverside.herokuapp.com/getData",
+      params: { ip },
+    };
+
+    await axios
+      .request(options)
+      .then((response : any) => {
+        const data = response.data;
+        setDashboardData({
+          ipAddress: data.ip,
+          location: data.location.country + ", " + data.location.region,
+          timezone: data.location.timezone,
+          isp: data.isp,
+        });
+      })
+      .catch((error : any) => {
+        console.error(error);
+      });
   };
 
   return (
