@@ -56,7 +56,6 @@ const Map: React.FC = () => {
                 }
               },
             }}
-            // icon={icon}
           />
         ))}
         {activePark && (
@@ -65,10 +64,6 @@ const Map: React.FC = () => {
               activePark.geometry.coordinates[1],
               activePark.geometry.coordinates[0],
             ]}
-
-            // onClose={() => {
-            //   setActivePark(null);
-            // }}
           >
             <div>
               <h2>
