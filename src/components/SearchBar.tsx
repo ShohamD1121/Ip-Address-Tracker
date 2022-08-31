@@ -16,19 +16,6 @@ const SearchBar = ({ setDashboardData }: DashboardStateProps) => {
       timezone: data.location.timezone,
       isp: data.isp,
     });
-
-    getCords();
-  };
-
-  const getCords = async () => {
-    var dir1 = "5th ave, new york";
-    var google_url =
-      "http://maps.googleapis.com/maps/api/geocode/json?address=";
-    var sensor = "&sensor=false";
-
-    const cords = await axios.get(google_url + dir1 + sensor);
-    console.log(cords);
-    
   };
 
   return (
