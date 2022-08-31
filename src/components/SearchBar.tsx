@@ -6,26 +6,29 @@ const SearchBar = ({ setDashboardData }: DashboardStateProps) => {
   const [ip, setIp] = useState<string>("");
 
   const handleClick = async () => {
-    const options = {
-      method: "GET",
-      url: "https://ip-address-tracker-serverside.herokuapp.com/getData",
-      params: { ip },
-    };
+    const { data } = await axios.get(
+      `https://geo.ipify.org/api/v2/country?apiKey=at_xRPXe7urD57Ee2ZsV4oIsqArQOgCq&ipAddress=${ip}`
+    );
 
-    await axios
-      .request(options)
-      .then((response : any) => {
-        const data = response.data;
-        setDashboardData({
-          ipAddress: data.ip,
-          location: data.location.country + ", " + data.location.region,
-          timezone: data.location.timezone,
-          isp: data.isp,
-        });
-      })
-      .catch((error : any) => {
-        console.error(error);
-      });
+    setDashboardData({
+      ipAddress: data.ip,
+      location: data.location.country + ", " + data.location.region,
+      timezone: data.location.timezone,
+      isp: data.isp,
+    });
+
+    getCords();
+  };
+
+  const getCords = async () => {
+    var dir1 = "5th ave, new york";
+    var google_url =
+      "http://maps.googleapis.com/maps/api/geocode/json?address=";
+    var sensor = "&sensor=false";
+
+    const cords = await axios.get(google_url + dir1 + sensor);
+    console.log(cords);
+    
   };
 
   return (
