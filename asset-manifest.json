@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/Ip-Address-Tracker/static/css/main.df2593d5.css",
-    "main.js": "/Ip-Address-Tracker/static/js/main.e6a29112.js",
+    "main.js": "/Ip-Address-Tracker/static/js/main.432f2be2.js",
     "static/js/787.cda612ba.chunk.js": "/Ip-Address-Tracker/static/js/787.cda612ba.chunk.js",
     "static/media/pattern-bg.png": "/Ip-Address-Tracker/static/media/pattern-bg.a60a3c85aa8b88aac4b7.png",
     "index.html": "/Ip-Address-Tracker/index.html",
     "main.df2593d5.css.map": "/Ip-Address-Tracker/static/css/main.df2593d5.css.map",
-    "main.e6a29112.js.map": "/Ip-Address-Tracker/static/js/main.e6a29112.js.map",
+    "main.432f2be2.js.map": "/Ip-Address-Tracker/static/js/main.432f2be2.js.map",
     "787.cda612ba.chunk.js.map": "/Ip-Address-Tracker/static/js/787.cda612ba.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.df2593d5.css",
-    "static/js/main.e6a29112.js"
+    "static/js/main.432f2be2.js"
   ]
 }
