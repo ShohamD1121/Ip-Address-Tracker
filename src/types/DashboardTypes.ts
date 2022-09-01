@@ -8,4 +8,6 @@ export type DashBoradDataTypes = {
   location: string;
   timezone: string;
   isp: string;
+  latitude : string,
+  longitude : string
 };

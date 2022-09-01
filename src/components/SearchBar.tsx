@@ -7,7 +7,7 @@ const SearchBar = ({ setDashboardData }: DashboardStateProps) => {
 
   const handleClick = async () => {
     const { data } = await axios.get(
-      `https://geo.ipify.org/api/v2/country?apiKey=at_xRPXe7urD57Ee2ZsV4oIsqArQOgCq&ipAddress=${ip}`
+      `https://geo.ipify.org/api/v2/country,city?apiKey=at_xRPXe7urD57Ee2ZsV4oIsqArQOgCq&ipAddress=${ip}`
     );
 
     setDashboardData({
@@ -15,6 +15,8 @@ const SearchBar = ({ setDashboardData }: DashboardStateProps) => {
       location: data.location.country + ", " + data.location.region,
       timezone: data.location.timezone,
       isp: data.isp,
+      latitude: data.location.lat,
+      longitude: data.location.lng,
     });
   };
 

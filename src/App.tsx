@@ -11,6 +11,8 @@ const App : React.FC = () => {
     location: "",
     timezone: "",
     isp: "",
+    latitude : "",
+    longitude : ""
   });
 
   return (
@@ -18,7 +20,7 @@ const App : React.FC = () => {
       <div className="relative">
         <Dashboard dashboardData={dashboardData} setDashboardData={setDashboardData} />
         <SearchBar dashboardData={dashboardData} setDashboardData={setDashboardData} />
-        <Map />
+        <Map dashboardData={dashboardData} setDashboardData={setDashboardData} />
       </div>
     </Fragment>
   );
