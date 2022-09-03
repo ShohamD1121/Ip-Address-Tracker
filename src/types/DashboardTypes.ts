@@ -1,6 +1,6 @@
 export type DashboardStateProps = {
-  dashboardData: any;
   setDashboardData: any;
+  dashboardData: any;
 };
 
 export type DashBoradDataTypes = {
@@ -8,6 +8,6 @@ export type DashBoradDataTypes = {
   location: string;
   timezone: string;
   isp: string;
-  latitude : string,
-  longitude : string
+  latitude: string;
+  longitude: string;
 };
