@@ -1,6 +1,6 @@
 export type DashboardStateProps = {
-  setDashboardData: any;
   dashboardData: any;
+  setDashboardData: any;
 };
 
 export type DashBoradDataTypes = {
