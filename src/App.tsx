@@ -1,9 +1,9 @@
 import React,{ Fragment, useState } from "react";
 import SearchBar from "./components/SearchBar";
 import Map from "./components/Map";
+import "./App.css";
 import Dashboard from "./components/Dashboard";
 import { DashBoradDataTypes } from "./types/DashboardTypes";
-import "./App.css";
 
 const App : React.FC = () => {
   const [dashboardData, setDashboardData] = useState<DashBoradDataTypes>({
