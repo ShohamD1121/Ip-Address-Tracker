@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
-import { MapContainer, TileLayer, Marker, Popup} from "react-leaflet";
+import { Fragment, useEffect, useState } from "react";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { DashboardStateProps } from "../types/DashboardTypes";
+import ChangeCenter from "./ChangeCenter";
 
 const Map = ({ dashboardData }: DashboardStateProps) => {
-
   const [Mark, setMark] = useState<any>(null);
   const [Markers, setMarkers] = useState<any>([]);
 
@@ -13,7 +13,6 @@ const Map = ({ dashboardData }: DashboardStateProps) => {
     } // eslint-disable-next-line
   }, [dashboardData]);
 
-
   return (
     <div className="relative z-0">
       <MapContainer center={[45.4, -75.7]} zoom={12} scrollWheelZoom={true}>
@@ -21,21 +20,28 @@ const Map = ({ dashboardData }: DashboardStateProps) => {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         />
-        
-        {Markers.map((newMark: any, index: number) => (
-          <Marker
-            key={index}
-            position={[newMark.latitude, newMark.longitude]}
-            eventHandlers={{
-              click: () => {
-                setMark(newMark);
-                if (Mark !== null) {
-                  setMark(null);
-                }
-              },
-            }}
-          />
-        ))}
+
+        {Markers.map((newMark: any, index: number) => {
+          return (
+            <Fragment>
+              <ChangeCenter
+                position={{ lat: newMark.latitude, lng: newMark.longitude }}
+              />
+              <Marker
+                key={index}
+                position={[newMark.latitude, newMark.longitude]}
+                eventHandlers={{
+                  click: () => {
+                    setMark(newMark);
+                    if (Mark !== null) {
+                      setMark(null);
+                    }
+                  },
+                }}
+              />
+            </Fragment>
+          );
+        })}
         {Mark && (
           <Popup position={[Mark.latitude, Mark.longitude]}>
             <div>
