@@ -23,12 +23,11 @@ const Map = ({ dashboardData }: DashboardStateProps) => {
 
         {Markers.map((newMark: any, index: number) => {
           return (
-            <Fragment>
+            <Fragment key={index}>
               <ChangeCenter
                 position={{ lat: newMark.latitude, lng: newMark.longitude }}
               />
               <Marker
-                key={index}
                 position={[newMark.latitude, newMark.longitude]}
                 eventHandlers={{
                   click: () => {

@@ -6,7 +6,7 @@ const Dashboard = ({ dashboardData } : DashboardStateProps) => {
 
   return (
     <div className="flex bg-transparent h-24 w-full rounded-lg absolute z-10 mt-48 items-center">
-      <div className="flex bg-white h-24 w-11/12 rounded-lg mx-auto p-5">
+      <div className="flex bg-white h-24 w-11/12 rounded-lg mx-auto p-5 md:flex-row flex-col">
         <div className="flex w-1/4">
           <div className="w-8/12">
             <p className="break-words text-gray-500 uppercase text-xs">

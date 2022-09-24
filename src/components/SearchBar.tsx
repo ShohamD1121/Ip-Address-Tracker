@@ -6,18 +6,19 @@ const SearchBar = ({ setDashboardData }: DashboardStateProps) => {
   const [ip, setIp] = useState<string>("");
 
   const handleClick = async () => {
-    const { data } = await axios.get(
-      `https://geo.ipify.org/api/v2/country,city?apiKey=at_xRPXe7urD57Ee2ZsV4oIsqArQOgCq&ipAddress=${ip}`
-    );
-
-    setDashboardData({
-      ipAddress: data.ip,
-      location: data.location.country + ", " + data.location.region,
-      timezone: data.location.timezone,
-      isp: data.isp,
-      latitude: data.location.lat,
-      longitude: data.location.lng,
-    });
+    if (ip !== "") {
+      const { data } = await axios.get(
+        `https://geo.ipify.org/api/v2/country,city?apiKey=at_xRPXe7urD57Ee2ZsV4oIsqArQOgCq&ipAddress=${ip}`
+      );
+      setDashboardData({
+        ipAddress: data.ip,
+        location: data.location.country + ", " + data.location.region,
+        timezone: data.location.timezone,
+        isp: data.isp,
+        latitude: data.location.lat,
+        longitude: data.location.lng,
+      });
+    }
   };
 
   return (
@@ -27,7 +28,8 @@ const SearchBar = ({ setDashboardData }: DashboardStateProps) => {
       </h1>
       <div className="w-full flex justify-center">
         <input
-          type="text"
+          required
+          pattern="^([0-9]{1,3}\.){3}[0-9]{1,3}$"
           onChange={(e) => setIp(e.target.value)}
           placeholder="Search for any IP address or domain"
           className="h-10 pl-4 mt-6 w-1/2 rounded-l-xl border-none outline-none text-sm sm:text-lg"
