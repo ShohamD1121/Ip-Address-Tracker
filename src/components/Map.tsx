@@ -14,42 +14,40 @@ const Map = ({ dashboardData }: DashboardStateProps) => {
   }, [dashboardData]);
 
   return (
-    <div className="relative z-0">
-      <MapContainer center={[45.4, -75.7]} zoom={12} scrollWheelZoom={true}>
-        <TileLayer
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        />
+    <MapContainer center={[45.4, -75.7]} zoom={12} scrollWheelZoom={true}>
+      <TileLayer
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+      />
 
-        {Markers.map((newMark: any, index: number) => {
-          return (
-            <Fragment key={index}>
-              <ChangeCenter
-                position={{ lat: newMark.latitude, lng: newMark.longitude }}
-              />
-              <Marker
-                position={[newMark.latitude, newMark.longitude]}
-                eventHandlers={{
-                  click: () => {
-                    setMark(newMark);
-                    if (Mark !== null) {
-                      setMark(null);
-                    }
-                  },
-                }}
-              />
-            </Fragment>
-          );
-        })}
-        {Mark && (
-          <Popup position={[Mark.latitude, Mark.longitude]}>
-            <div>
-              <h2>{Mark.isp}</h2>
-            </div>
-          </Popup>
-        )}
-      </MapContainer>
-    </div>
+      {Markers.map((newMark: any, index: number) => {
+        return (
+          <Fragment key={index}>
+            <ChangeCenter
+              position={{ lat: newMark.latitude, lng: newMark.longitude }}
+            />
+            <Marker
+              position={[newMark.latitude, newMark.longitude]}
+              eventHandlers={{
+                click: () => {
+                  setMark(newMark);
+                  if (Mark !== null) {
+                    setMark(null);
+                  }
+                },
+              }}
+            />
+          </Fragment>
+        );
+      })}
+      {Mark && (
+        <Popup position={[Mark.latitude, Mark.longitude]}>
+          <div>
+            <h2>{Mark.isp}</h2>
+          </div>
+        </Popup>
+      )}
+    </MapContainer>
   );
 };
 

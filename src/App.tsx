@@ -1,29 +1,40 @@
-import React,{ Fragment, useState } from "react";
+import React, { Fragment, useState } from "react";
 import SearchBar from "./components/SearchBar";
 import Map from "./components/Map";
 import "./App.css";
 import Dashboard from "./components/Dashboard";
 import { DashBoradDataTypes } from "./types/DashboardTypes";
 
-const App : React.FC = () => {
+const App: React.FC = () => {
   const [dashboardData, setDashboardData] = useState<DashBoradDataTypes>({
-    ipAddress : "",
+    ipAddress: "",
     location: "",
     timezone: "",
     isp: "",
-    latitude : "",
-    longitude : ""
+    latitude: "",
+    longitude: "",
   });
 
   return (
     <Fragment>
       <div className="relative">
-        <Dashboard dashboardData={dashboardData} setDashboardData={setDashboardData} />
-        <SearchBar dashboardData={dashboardData} setDashboardData={setDashboardData} />
-        <Map dashboardData={dashboardData} setDashboardData={setDashboardData} />
+        <div className="flex flex-col bg-pattern bg-no-repeat bg-cover">
+          <SearchBar
+            dashboardData={dashboardData}
+            setDashboardData={setDashboardData}
+          />
+          <Dashboard
+            dashboardData={dashboardData}
+            setDashboardData={setDashboardData}
+          />
+        </div>
+        <Map
+          dashboardData={dashboardData}
+          setDashboardData={setDashboardData}
+        />
       </div>
     </Fragment>
   );
-}
+};
 
 export default App;

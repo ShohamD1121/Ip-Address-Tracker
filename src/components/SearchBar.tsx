@@ -4,25 +4,34 @@ import { DashboardStateProps } from "../types/DashboardTypes";
 
 const SearchBar = ({ setDashboardData }: DashboardStateProps) => {
   const [ip, setIp] = useState<string>("");
+  const [notFound, setNotFound] = useState<boolean>(false);
 
   const handleClick = async () => {
     if (ip !== "") {
-      const { data } = await axios.get(
-        `https://geo.ipify.org/api/v2/country,city?apiKey=at_xRPXe7urD57Ee2ZsV4oIsqArQOgCq&ipAddress=${ip}`
-      );
-      setDashboardData({
-        ipAddress: data.ip,
-        location: data.location.country + ", " + data.location.region,
-        timezone: data.location.timezone,
-        isp: data.isp,
-        latitude: data.location.lat,
-        longitude: data.location.lng,
-      });
+      const { data }: any = await axios
+        .get(
+          `https://geo.ipify.org/api/v2/country,city?apiKey=at_xRPXe7urD57Ee2ZsV4oIsqArQOgCq&ipAddress=${ip}`
+        )
+        .catch((err) => console.log(err.message));
+
+      if (data.location.country !== "ZZ") {
+        setNotFound(false);
+        setDashboardData({
+          ipAddress: data.ip,
+          location: data.location.country + ", " + data.location.region,
+          timezone: data.location.timezone,
+          isp: data.isp,
+          latitude: data.location.lat,
+          longitude: data.location.lng,
+        });
+      } else {
+        setNotFound(true);
+      }
     }
   };
 
   return (
-    <div className="bg-pattern bg-no-repeat bg-cover h-60 flex flex-col">
+    <div className="flex flex-col md:mb-20 mb-8">
       <h1 className="text-3xl text-center pt-6 text-white">
         IP Address Tracker
       </h1>
@@ -48,6 +57,11 @@ const SearchBar = ({ setDashboardData }: DashboardStateProps) => {
           </svg>
         </button>
       </div>
+      {notFound && (
+        <h2 className="text-red-600 mt-4 text-center">
+          This ip address does not exist on our API
+        </h2>
+      )}
     </div>
   );
 };
