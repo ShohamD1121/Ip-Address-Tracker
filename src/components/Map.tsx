@@ -3,7 +3,7 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { DashboardStateProps } from "../types/DashboardTypes";
 import ChangeCenter from "./ChangeCenter";
 
-const Map = ({ dashboardData }: DashboardStateProps) => {
+const Map: React.FC<DashboardStateProps> = ({ dashboardData }) => {
   const [Mark, setMark] = useState<any>(null);
   const [Markers, setMarkers] = useState<any>([]);
 

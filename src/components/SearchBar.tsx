@@ -1,8 +1,8 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { DashboardStateProps } from "../types/DashboardTypes";
 
-const SearchBar = ({ setDashboardData }: DashboardStateProps) => {
+const SearchBar : React.FC<DashboardStateProps >= ({ setDashboardData }) => {
   const [ip, setIp] = useState<string>("");
   const [notFound, setNotFound] = useState<boolean>(false);
 

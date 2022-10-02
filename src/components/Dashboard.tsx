@@ -1,7 +1,7 @@
 import { DashboardStateProps } from "../types/DashboardTypes";
 import DashboardItem from "./DashboardItem";
 
-const Dashboard = ({ dashboardData }: DashboardStateProps) => {
+const Dashboard: React.FC<DashboardStateProps> = ({ dashboardData }) => {
   return (
     <div className="flex mb-4">
       <div className="flex md:flex-row flex-col h-auto w-11/12 bg-white rounded-lg p-5 mx-auto">

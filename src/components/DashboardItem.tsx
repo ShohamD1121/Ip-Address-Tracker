@@ -1,6 +1,6 @@
 import React from "react";
 
-const DashboardItem = ({ itemName, dashboardDataItem }: any) => {
+const DashboardItem : React.FC<any> = ({ itemName, dashboardDataItem }) => {
   return (
     <div className="flex md:flex-col md:w-1/4 w-full">
       <p className="break-words text-gray-500 uppercase text-xs w-1/2">
