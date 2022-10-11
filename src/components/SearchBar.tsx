@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { DashboardStateProps } from "../types/DashboardTypes";
 
-const SearchBar : React.FC<DashboardStateProps >= ({ setDashboardData }) => {
+const SearchBar: React.FC<DashboardStateProps> = ({ setDashboardData }) => {
   const [ip, setIp] = useState<string>("");
   const [notFound, setNotFound] = useState<boolean>(false);
 
@@ -40,7 +40,7 @@ const SearchBar : React.FC<DashboardStateProps >= ({ setDashboardData }) => {
           required
           pattern="^([0-9]{1,3}\.){3}[0-9]{1,3}$"
           onChange={(e) => setIp(e.target.value)}
-          placeholder="Search for any IP address or domain"
+          placeholder="Search for any IP address"
           className="h-10 pl-4 mt-6 w-1/2 rounded-l-xl border-none outline-none text-sm sm:text-lg"
         />
         <button
@@ -57,6 +57,7 @@ const SearchBar : React.FC<DashboardStateProps >= ({ setDashboardData }) => {
           </svg>
         </button>
       </div>
+      <p className="text-center text-gray-300">For Example, Try 16.49.64.100</p>
       {notFound && (
         <h2 className="text-red-600 mt-4 text-center">
           This ip address does not exist on our API
